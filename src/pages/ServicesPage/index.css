@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.navbar {
+  @apply flex justify-between items-center;
+}
+.logo {
+  @apply flex gap-2;
+}
