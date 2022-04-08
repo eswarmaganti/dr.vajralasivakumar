@@ -1,6 +1,10 @@
 import React from "react";
 import services from "../../assets/images/services.svg";
 import Badge from "../../components/utils/Badge";
+import Pill from "../../components/utils/Pill";
+import Nurse from "../../components/utils/Nurse";
+import Microscope from "../../components/utils/Microscope";
+import Team from "../../components/utils/Team";
 const ServicesPage = () => {
   return (
     <div className="wrapper">
@@ -15,87 +19,35 @@ const ServicesPage = () => {
 
           {/* Services Main Content Section */}
           <section className="my-4 grid grid-cols-2 gap-2">
-            {/* Brain Services Section */}
-            <div className="mt-4 bg-sky-200 px-2 py-4 shadow-inner shadow-lg rounded">
-              <h3 className="text-xl font-semibold pb-2">Brain Treatments</h3>
-              <ul className="ml-4">
-                <li className="flex gap-2 py-1">
-                  <Badge color="text-sky-600 " />
-                  <span className="font-medium uppercase">
-                    Micro Neuro Surgery
-                  </span>
-                </li>
+            <ServiceDetails
+              title="Brain Services"
+              services={[
+                "Micro Neuro Surgery",
+                "Brain Tumors",
+                "Head Injury",
+                "Neuro Endoscopic Surgery",
+                "CT Guided Stereotactic Surgery",
+                "Cerebro Vascular Surgery",
+              ]}
+            />
+            <ServiceDetails
+              title="Spine Services"
+              services={[
+                "Micro Neuro Surgery",
+                "Brain Tumors",
+                "Head Injury",
+                "Neuro Endoscopic Surgery",
+                "CT Guided Stereotactic Surgery",
+                "Cerebro Vascular Surgery",
+              ]}
+            />
+          </section>
 
-                <li className="flex gap-2 py-1">
-                  <Badge color="text-sky-600 " />
-                  <span className="font-medium uppercase">Brain Tumors</span>
-                </li>
-
-                <li className="flex gap-2 py-1">
-                  <Badge color="text-sky-600 " />
-                  <span className="font-medium uppercase">Head Injury</span>
-                </li>
-
-                <li className="flex gap-2 py-1">
-                  <Badge color="text-sky-600 " />
-                  <span className="font-medium uppercase">
-                    Neuro Endoscopic Surgery
-                  </span>
-                </li>
-                <li className="flex gap-2 py-1">
-                  <Badge color="text-sky-600 " />
-                  <span className="font-medium uppercase">
-                    CT Guided Stereotactic Surgery
-                  </span>
-                </li>
-                <li className="flex gap-2 py-1">
-                  <Badge color="text-sky-600 " />
-                  <span className="font-medium uppercase">
-                    Cerebro Vascular Surgery
-                  </span>
-                </li>
-              </ul>
-            </div>
-            {/* Spine Services Section */}
-
-            <div className="mt-4 bg-sky-200  px-2 py-4 shadow-inner shadow-lg rounded">
-              <h3 className="text-xl font-semibold pb-2">Spine Treatments</h3>
-              <ul className="ml-4">
-                <li className="flex gap-2 py-1">
-                  <Badge color="text-sky-600 " />
-                  <span className="font-medium uppercase">
-                    Micro Neuro Surgery
-                  </span>
-                </li>
-
-                <li className="flex gap-2 py-1">
-                  <Badge color="text-sky-600 " />
-                  <span className="font-medium uppercase">Brain Tumors</span>
-                </li>
-
-                <li className="flex gap-2 py-1">
-                  <Badge color="text-sky-600 " />
-                  <span className="font-medium uppercase">Head Injury</span>
-                </li>
-
-                <li className="flex gap-2 py-1">
-                  <Badge color="text-sky-600 " />
-                  <span className="font-medium uppercase">
-                    Neuro Endoscopic Surgery
-                  </span>
-                </li>
-                <li className="flex gap-2 py-1">
-                  <Badge color="text-sky-600 " />
-                  <span className="font-medium uppercase">
-                    CT Guided Stereotactic Surgery
-                  </span>
-                </li>
-                <li className="flex gap-2 py-1">
-                  <Badge color="text-sky-600 " />
-                  <span className="font-medium">Cerebro Vascular Surgery</span>
-                </li>
-              </ul>
-            </div>
+          <section className="grid grid-cols-4 gap-4">
+            <ServiceCard title="24/7 Pharmacy" Icon={Pill} />
+            <ServiceCard title="24/7 Nursing" Icon={Nurse} />
+            <ServiceCard title="24/7 Laboratory" Icon={Microscope} />
+            <ServiceCard title="Critical Care" Icon={Team} />
           </section>
         </div>
         <div>
@@ -106,4 +58,24 @@ const ServicesPage = () => {
   );
 };
 
+const ServiceDetails = ({ title, services }) => (
+  <div className="mt-4 bg-sky-200 px-2 py-4 shadow-inner shadow-lg rounded">
+    <h3 className="text-xl font-semibold pb-2">{title}</h3>
+    <ul className="ml-4">
+      {services.map((service) => (
+        <li className="flex gap-2 py-1">
+          <Badge color="text-sky-600 " />
+          <span className="font-medium uppercase">{service}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+);
+
+const ServiceCard = ({ title, Icon }) => (
+  <div className="px-2 py-3 bg-sky-600 rounded  flex justify-center flex-col items-center  shadow-lg shadow-sky-600/50 hover:bg-sky-700 ease-in duration-200">
+    <Icon />
+    <h3 className="text-zinc-200 mt-2">{title}</h3>
+  </div>
+);
 export default ServicesPage;

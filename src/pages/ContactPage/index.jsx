@@ -136,9 +136,8 @@ const ContactForm = () => (
       </div>
 
       <div className="my-4">
-        <button type="submit" className="btn btn-primary">
-          <Message color="text-white" />
-          <span>Send Message</span>
+        <button className="btn-lg btn-primary">
+          <Message color="text-white" /> Send Message
         </button>
       </div>
     </form>

@@ -3,6 +3,7 @@ import "./index.css";
 import services from "../../assets/images/services.svg";
 import Phone from "../../components/utils/Phone";
 import Login from "../../components/utils/Login";
+import { Link } from "react-router-dom";
 const HomePage = () => {
   return (
     <div className="wrapper  home-page bg-sky-100">
@@ -27,14 +28,18 @@ const HomePage = () => {
             </p>
 
             <div className="flex gap-4 pt-3">
-              <button className="btn btn-primary">
-                {" "}
-                <Phone color="text-white" /> Contact Us
-              </button>
-              <button className="btn btn-primary-outline">
-                <Login />
-                Login
-              </button>
+              <Link to="/contact">
+                <button className="btn btn-primary">
+                  {" "}
+                  <Phone color="text-white" /> Contact Us
+                </button>
+              </Link>
+              <Link to="/login">
+                <button className="btn btn-primary-outline">
+                  <Login />
+                  Login
+                </button>
+              </Link>
             </div>
           </div>
         </div>

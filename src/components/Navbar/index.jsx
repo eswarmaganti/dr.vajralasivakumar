@@ -9,6 +9,7 @@ const Navbar = () => {
   console.log(location);
   return (
     <nav className="navbar">
+      {/* Navbar Logo Section */}
       <div className="logo">
         <img src={brain} alt="logo" className="h-12 w-12" />
         <div className="flex flex-col">
@@ -20,60 +21,32 @@ const Navbar = () => {
           </h2>
         </div>
       </div>
+
+      {/* Navbar Links Section */}
+
       <div className="navbar-nav">
-        <div
-          className={location.pathname === "/" ? "nav-item-active" : "nav-item"}
-        >
-          <Link to="/"> Home</Link>
-        </div>
-        <div
-          className={
-            location.pathname === "/about" ? "nav-item-active" : "nav-item"
-          }
-        >
-          <Link to="/about">About</Link>
-        </div>
-        <div
-          className={
-            location.pathname === "/services" ? "nav-item-active" : "nav-item"
-          }
-        >
-          <Link to="/services">Services</Link>
-        </div>
-        <div
-          className={
-            location.pathname === "/contact" ? "nav-item-active" : "nav-item"
-          }
-        >
-          <Link to="/contact">Contact</Link>
-        </div>
-        <div
-          className={
-            location.pathname === "/login" ? "nav-item-active" : "nav-item"
-          }
-        >
-          <Link to="/login">
-            <span className="flex gap-1">
-              <Login />
-              LogIn
-            </span>
-          </Link>
-        </div>
-        <div
-          className={
-            location.pathname === "/signup" ? "nav-item-active" : "nav-item"
-          }
-        >
-          <Link to="/signup">
-            <span className="flex gap-1">
-              <AddUser />
-              SignUp
-            </span>
-          </Link>
-        </div>
+        <NavItem to="/" title="Home" location={location} />
+        <NavItem to="/about" title="About" location={location} />
+        <NavItem to="/services" title="Services" location={location} />
+        <NavItem to="/testimonials" title="Testimonials" location={location} />
+        <NavItem to="/contact" title="Contact" location={location} />
       </div>
+      <aside>
+        <NavItem to="/login" title="Login" Icon={Login} location={location} />
+      </aside>
     </nav>
   );
 };
+
+const NavItem = ({ to, title, location, Icon }) => (
+  <div className={location.pathname === to ? "nav-item-active" : "nav-item"}>
+    <Link to={to}>
+      <span className="flex gap-1">
+        {Icon && <Icon />}
+        {title}
+      </span>
+    </Link>
+  </div>
+);
 
 export default Navbar;
