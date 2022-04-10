@@ -1,6 +1,6 @@
 import React from "react";
 import "./index.css";
-import services from "../../assets/images/services.svg";
+import hero from "../../assets/images/hero.svg";
 import Phone from "../../components/utils/Phone";
 import Login from "../../components/utils/Login";
 import { Link } from "react-router-dom";
@@ -44,7 +44,7 @@ const HomePage = () => {
           </div>
         </div>
         <div className=" overflow-hidden flex justify-center">
-          <img src={services} alt="" className=" h-full" />
+          <img src={hero} alt="" className=" h-full" />
         </div>
       </div>
     </div>

@@ -8,8 +8,8 @@ import Team from "../../components/utils/Team";
 const ServicesPage = () => {
   return (
     <div className="wrapper">
-      <div className="grid grid-cols-2">
-        <div className="flex items-center justify-center flex-col">
+      <div className="grid grid-cols-2 gap-4">
+        <div className=" flex items-center justify-center flex-col">
           {/* ServicesPage Heading */}
           <h1 className="text-4xl font-bold">
             We provide world class services for{" "}
@@ -43,15 +43,15 @@ const ServicesPage = () => {
             />
           </section>
 
-          <section className="grid grid-cols-4 gap-4">
+          <section className="grid grid-cols-4 gap-3">
             <ServiceCard title="24/7 Pharmacy" Icon={Pill} />
             <ServiceCard title="24/7 Nursing" Icon={Nurse} />
             <ServiceCard title="24/7 Laboratory" Icon={Microscope} />
             <ServiceCard title="Critical Care" Icon={Team} />
           </section>
         </div>
-        <div>
-          <img src={services} alt="illustration" className="contain" />
+        <div className="">
+          <img src={services} alt="illustration" className="" />
         </div>
       </div>
     </div>
